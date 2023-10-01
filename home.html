@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #userTypeSelection {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <button type="button" onclick="validateLogin()">Login</button>
+    </form>
+
+    <div id="userTypeSelection">
+        <p>Select user type:</p>
+        <select id="userType">
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+        <br>
+        <button onclick="submitUserType()">Submit</button>
+    </div>
+
+    <script>
+        function validateLogin() {
+            // Basic validation, you may want to add more robust authentication
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simulate successful login
+            if (username === 'user' && password === 'pass') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('userTypeSelection').style.display = 'block';
+            } else {
+                alert('Invalid login credentials. Try again.');
+            }
+        }
+
+        function submitUserType() {
+            var userType = document.getElementById('userType').value;
+            alert('Logged in as ' + userType);
+            // You can redirect or perform actions based on the selected user type
+        }
+    </script>
+</body>
+</html>
